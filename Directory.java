@@ -4,8 +4,8 @@
  * @since 03-02-2020
  */
 
+import java.io.FileReader;
 import java.util.List;
-
 public interface Directory {
 
     /**
@@ -50,6 +50,6 @@ public interface Directory {
      *
      * @return an array list of all entries
      */
-    List<Entry> toArrayList();
+    List<FileReader> toArrayList();
 
 }
