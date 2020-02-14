@@ -4,6 +4,8 @@ import java.util.List;
 public class ArrayDirectory implements Directory {
     @Override
     public void insertEntry(Entry entry) {
+
+
     }
 
     @Override
@@ -41,8 +43,8 @@ public class ArrayDirectory implements Directory {
     public static void main(String[] args) {
 
         ArrayDirectory obj = new ArrayDirectory();
-         obj.insertEntry("travis");
-        //System.out.println(obj.directoryCreator());
+        Entry myNewEntry= new Entry("Higgins", "TSH", "865352");
+        obj.insertEntry(myNewEntry);
     }
 
 }
