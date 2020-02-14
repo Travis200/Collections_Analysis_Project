@@ -1,15 +1,25 @@
 import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class ArrayDirectory implements Directory {
-    Entry[] directoryEntries[0];
+    private Entry[] directoryEntries = new Entry[0];
+
     @Override
     public void insertEntry(Entry entry) {
-
+        ArrayList<Entry> directoryEntriesArrayList = new ArrayList<Entry>(Arrays.asList(directoryEntries));
+        directoryEntriesArrayList.add(entry);
+        this.directoryEntries = new Entry[directoryEntriesArrayList.size()];
+        this.directoryEntries = directoryEntriesArrayList.toArray(this.directoryEntries);
     }
 
     @Override
     public void deleteEntryUsingName(String surname) {
+        ArrayList<Entry> directoryEntriesArrayList = new ArrayList<Entry>(Arrays.asList(directoryEntries));
+
+
+        this.directoryEntries = directoryEntriesArrayList.toArray(this.directoryEntries);
 
     }
 
