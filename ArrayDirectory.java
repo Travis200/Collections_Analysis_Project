@@ -31,7 +31,7 @@ public class ArrayDirectory implements Directory {
         return null;
     }
 
-}
+
 
     /*public String[][] directoryCreator() {
         String[][] directory = {{"Higgins", "TSH", "98356" }, {"Waterhouse", "LWW", "86522"}};
