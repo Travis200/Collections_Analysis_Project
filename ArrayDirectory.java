@@ -2,9 +2,9 @@ import java.io.FileReader;
 import java.util.List;
 
 public class ArrayDirectory implements Directory {
+    Entry[] directoryEntries[0];
     @Override
     public void insertEntry(Entry entry) {
-
 
     }
 
@@ -41,7 +41,6 @@ public class ArrayDirectory implements Directory {
     }*/
 
     public static void main(String[] args) {
-
         ArrayDirectory obj = new ArrayDirectory();
         Entry myNewEntry= new Entry("Higgins", "TSH", "865352");
         obj.insertEntry(myNewEntry);
