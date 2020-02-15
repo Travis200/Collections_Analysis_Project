@@ -17,20 +17,36 @@ public class ArrayDirectory implements Directory {
     @Override
     public void deleteEntryUsingName(String surname) {
         ArrayList<Entry> directoryEntriesArrayList = new ArrayList<Entry>(Arrays.asList(directoryEntries));
+        for (int i = 0; i < directoryEntriesArrayList.size(); i++) {
+            if (directoryEntriesArrayList.get(i).getSurname().equals(surname)) {
+                directoryEntriesArrayList.remove(i);
+            }
+            this.directoryEntries = directoryEntriesArrayList.toArray(this.directoryEntries);
 
-
-        this.directoryEntries = directoryEntriesArrayList.toArray(this.directoryEntries);
+        }
 
     }
 
     @Override
     public void deleteEntryUsingExtension(String number) {
-
+        ArrayList<Entry> directoryEntriesArrayList = new ArrayList<Entry>(Arrays.asList(directoryEntries));
+        for (int i = 0; i < directoryEntriesArrayList.size(); i++) {
+            if (directoryEntriesArrayList.get(i).getTelephoneExtension().equals(number)) {
+                directoryEntriesArrayList.remove(i);
+            }
+            this.directoryEntries = directoryEntriesArrayList.toArray(this.directoryEntries);
+        }
     }
 
     @Override
     public void updateExtensionUsingName(String surname, String newNumber) {
-
+        ArrayList<Entry> directoryEntriesArrayList = new ArrayList<Entry>(Arrays.asList(directoryEntries));
+        for (int i = 0; i < directoryEntriesArrayList.size(); i++) {
+            if (directoryEntriesArrayList.get(i).getSurname().equals(surname)) {
+                //insert Code here for updating extension here
+            }
+            this.directoryEntries = directoryEntriesArrayList.toArray(this.directoryEntries);
+        }
     }
 
     @Override
