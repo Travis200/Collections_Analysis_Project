@@ -65,7 +65,8 @@ public class ArrayDirectory implements Directory {
 
     @Override
     public List<Entry> toArrayList() {
-        return null;
+        List<Entry> thing = Arrays.asList(directoryEntries);
+        return thing;
     }
 
 
@@ -76,9 +77,7 @@ public class ArrayDirectory implements Directory {
     }*/
 
     public static void main(String[] args) {
-        ArrayDirectory obj = new ArrayDirectory();
-        Entry myNewEntry= new Entry("Higgins", "TSH", "865352");
-        obj.insertEntry(myNewEntry);
-    }
+        System.out.println("Hello World");
 
+    }
 }

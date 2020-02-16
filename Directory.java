@@ -50,6 +50,6 @@ public interface Directory {
      *
      * @return an array list of all entries
      */
-    List<FileReader> toArrayList();
+    List<Entry> toArrayList();
 
 }
