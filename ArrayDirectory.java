@@ -10,10 +10,12 @@ public class ArrayDirectory implements Directory {
 
     @Override
     public void insertEntry(Entry entry) {
+        //Does not work
         ArrayList<Entry> directoryEntriesArrayList = new ArrayList<Entry>(Arrays.asList(directoryEntries));
         directoryEntriesArrayList.add(entry);
         this.directoryEntries = new Entry[directoryEntriesArrayList.size()];
         this.directoryEntries = directoryEntriesArrayList.toArray(this.directoryEntries);
+        System.out.println(directoryEntries);
     }
 
     @Override
@@ -26,7 +28,7 @@ public class ArrayDirectory implements Directory {
             this.directoryEntries = directoryEntriesArrayList.toArray(this.directoryEntries);
 
         }
-
+        System.out.println(Arrays.toString(directoryEntries));
     }
 
     @Override
@@ -49,6 +51,7 @@ public class ArrayDirectory implements Directory {
             }
             this.directoryEntries = directoryEntriesArrayList.toArray(this.directoryEntries);
         }
+        System.out.println(Arrays.toString(directoryEntries));
     }
 
     @Override
@@ -60,12 +63,14 @@ public class ArrayDirectory implements Directory {
             }
 
         }
+        System.out.println(Arrays.toString(directoryEntries));
         return null;
     }
 
     @Override
     public List<Entry> toArrayList() {
         List<Entry> thing = Arrays.asList(directoryEntries);
+        //System.out.println(Arrays.toString(directoryEntries));
         return thing;
     }
 
@@ -77,7 +82,7 @@ public class ArrayDirectory implements Directory {
     }*/
 
     public static void main(String[] args) {
-        System.out.println("Hello World");
-
+        ArrayDirectory test2 = new ArrayDirectory();
+        System.out.println(test2.lookupExtension("Sedgemond"));
     }
 }

@@ -11,7 +11,7 @@ public class ReadFile {
         ArrayList<Entry> fileDataArrayList = new ArrayList<Entry>();
         //Entry[] fileData = null;
         String row;
-        BufferedReader csvReader = new BufferedReader(new FileReader("test_data.csv"));
+        BufferedReader csvReader = new BufferedReader(new FileReader("test_data_small.csv"));
         while ((row = csvReader.readLine()) != null) {
             String[] data = row.split(",");
             Entry fileLine = new Entry(data[0], data[1], data[2]);
@@ -25,8 +25,8 @@ public class ReadFile {
         return fileData;
     }
 
-    public static void main(String[] args) throws IOException{
+    /*public static void main(String[] args) throws IOException{
         ReadFile test = new ReadFile();
         System.out.println((Arrays.toString(test.readFile())));
-    }
+    }*/
 }
