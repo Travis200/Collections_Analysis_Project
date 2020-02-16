@@ -1,3 +1,5 @@
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -43,7 +45,7 @@ public class ArrayDirectory implements Directory {
         ArrayList<Entry> directoryEntriesArrayList = new ArrayList<Entry>(Arrays.asList(directoryEntries));
         for (int i = 0; i < directoryEntriesArrayList.size(); i++) {
             if (directoryEntriesArrayList.get(i).getSurname().equals(surname)) {
-                //insert Code here for updating extension here
+                //Insert code here
             }
             this.directoryEntries = directoryEntriesArrayList.toArray(this.directoryEntries);
         }
@@ -51,11 +53,18 @@ public class ArrayDirectory implements Directory {
 
     @Override
     public String lookupExtension(String surname) {
+        ArrayList<Entry> directoryEntriesArrayList = new ArrayList<Entry>(Arrays.asList(directoryEntries));
+        for (int i = 0; i < directoryEntriesArrayList.size(); i++) {
+            if (directoryEntriesArrayList.get(i).getTelephoneExtension().equals(surname)) {
+                return directoryEntriesArrayList.get(i).getTelephoneExtension();
+            }
+
+        }
         return null;
     }
 
     @Override
-    public List<FileReader> toArrayList() {
+    public List<Entry> toArrayList() {
         return null;
     }
 
