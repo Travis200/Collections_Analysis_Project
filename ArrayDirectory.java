@@ -17,9 +17,8 @@ public class ArrayDirectory implements Directory {
     @Override
     public void deleteEntryUsingName(String surname) {
         ArrayList<Entry> directoryEntriesArrayList = new ArrayList<Entry>(Arrays.asList(directoryEntries));
-
-
         this.directoryEntries = directoryEntriesArrayList.toArray(this.directoryEntries);
+
 
     }
 
