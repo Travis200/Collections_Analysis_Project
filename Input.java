@@ -8,18 +8,15 @@ public class Input {
         ArrayList<Entry> fileDataArrayList = new ArrayList<Entry>();
         String row;
         BufferedReader csvReader = new BufferedReader(new FileReader("test_data_small.csv"));
-        System.out.println(1);
         while ((row = csvReader.readLine()) != null) {
-            System.out.println(2);
             String[] data = row.split(",");
             Entry fileLine = new Entry(data[0], data[1], data[2]);
+            System.out.println(fileLine);
             fileDataArrayList.add(fileLine);
-            System.out.println(3);
         }
         Entry[] fileData = (Entry[]) fileDataArrayList.toArray();
-        System.out.println(3);
+        System.out.println(fileDataArrayList);
         csvReader.close();
-        System.out.println(4);
         return fileData;
         }
 
