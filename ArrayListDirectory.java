@@ -4,20 +4,16 @@ import java.util.List;
 
 public class ArrayListDirectory implements Directory {
 
-
         public static ArrayList<Entry> directoryEntriesArrayList = new ArrayList<Entry>();
 
         @Override
         public void insertEntry(Entry entry) {
-            ArrayList<Entry> directoryEntriesArrayList = new ArrayList<Entry>(Arrays.asList(directoryEntries));
             directoryEntriesArrayList.add(entry);
-            directoryEntries = new Entry[directoryEntriesArrayList.size()];
-            directoryEntries = directoryEntriesArrayList.toArray(directoryEntries);
         }
 
         @Override
         public void deleteEntryUsingName(String surname) {
-            int lengthOfDE2 = ((directoryEntries.length)-1);
+            /*int lengthOfDE2 = ((directoryEntries.length)-1);
             Entry[] directoryEntries2 = new Entry[lengthOfDE2];
             ArrayList<Entry> directoryEntriesArrayList = new ArrayList<Entry>(Arrays.asList(directoryEntries));
             for (int i = 0; i < directoryEntriesArrayList.size(); i++) {
@@ -26,11 +22,11 @@ public class ArrayListDirectory implements Directory {
                 }
             }
             directoryEntries2 = directoryEntriesArrayList.toArray(directoryEntries2);
-            directoryEntries = directoryEntries2;
+            directoryEntries = directoryEntries2;*/
         }
 
         @Override
-        public void deleteEntryUsingExtension(String number) {
+        public void deleteEntryUsingExtension(String number) {/*
             int lengthOfDE2 = ((directoryEntries.length)-1);
             Entry[] directoryEntries2 = new Entry[lengthOfDE2];
             ArrayList<Entry> directoryEntriesArrayList = new ArrayList<Entry>(Arrays.asList(directoryEntries));
@@ -40,11 +36,11 @@ public class ArrayListDirectory implements Directory {
                 }
             }
             directoryEntries2 = directoryEntriesArrayList.toArray(directoryEntries2);
-            directoryEntries = directoryEntries2;
+            directoryEntries = directoryEntries2;*/
         }
 
         @Override
-        public void updateExtensionUsingName(String surname, String newNumber) {
+        public void updateExtensionUsingName(String surname, String newNumber) {/*
             ArrayList<Entry> directoryEntriesArrayList = new ArrayList<Entry>(Arrays.asList(directoryEntries));
             for (int i = 0; i < directoryEntriesArrayList.size(); i++) {
                 if (directoryEntriesArrayList.get(i).getSurname().equals(surname)) {
@@ -52,11 +48,11 @@ public class ArrayListDirectory implements Directory {
 
                 }
                 directoryEntries = directoryEntriesArrayList.toArray(directoryEntries);
-            }
+            }*/
         }
 
         @Override
-        public String lookupExtension(String surname) {
+        public String lookupExtension(String surname) {/*
             ArrayList<Entry> directoryEntriesArrayList = new ArrayList<Entry>(Arrays.asList(directoryEntries));
             String result = "";
             System.out.println();
@@ -67,26 +63,33 @@ public class ArrayListDirectory implements Directory {
                 }
             }
             return result;
+            */
+            return null;
         }
 
         @Override
-        public List<Entry> toArrayList() {
+        public List<Entry> toArrayList() {/*
             List<Entry> arrayList = Arrays.asList(directoryEntries);
-            return arrayList;
+            return arrayList;*/
+            return null;
         }
 
         public static void main(String[] args) {
-            ArrayDirectory obj1 = new ArrayDirectory();
+            ArrayDirectory obj2 = new ArrayDirectory();
             Entry entry1 = new Entry("Higgins", "T.S.H", "11111");
             Entry entry2 = new Entry("Waterhouse","L.W.W","22222");
             Entry entry3 = new Entry("Mclaughlin", "M.M.M", "33333");
-            obj1.insertEntry(entry1);
-            obj1.insertEntry(entry2);
-            obj1.insertEntry(entry3);
-            obj1.updateExtensionUsingName("Higgins", "44444");
-            for(int i=0;i<directoryEntries.length;i++){
-                System.out.println(directoryEntries[i].getTelephoneExtension());
-            }
+            obj2.insertEntry(entry1);
+            obj2.insertEntry(entry2);
+            obj2.insertEntry(entry3);
+            Entry[] directoryEntries = new Entry[0];
+            //System.out.println(directoryEntries);
+            System.out.println(Arrays.toString(directoryEntries));
+            //directoryEntries = directoryEntriesArrayList.toArray(directoryEntries);
+            //for(int i=0;i<directoryEntries.length;i++){
+                //System.out.println(directoryEntries[i].getSurname());
+            //}
+
 
         }
 
