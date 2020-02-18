@@ -57,11 +57,10 @@ public class ArrayDirectory implements Directory {
     @Override
     public String lookupExtension(String surname) {
         ArrayList<Entry> directoryEntriesArrayList = new ArrayList<Entry>(Arrays.asList(directoryEntries));
-        String result = "";
+        String result = null;
         System.out.println();
         for (int i = 0; i < directoryEntriesArrayList.size(); i++) {
             if (directoryEntriesArrayList.get(i).getSurname().equals(surname)) {
-                System.out.println("Hello");
                 result = directoryEntriesArrayList.get(i).getTelephoneExtension();
             }
         }
@@ -82,9 +81,9 @@ public class ArrayDirectory implements Directory {
         obj1.insertEntry(entry1);
         obj1.insertEntry(entry2);
         obj1.insertEntry(entry3);
-        obj1.updateExtensionUsingName("Higgins", "44444");
+        obj1.deleteEntryUsingName("Higgins");
         for(int i=0;i<directoryEntries.length;i++){
-            System.out.println(directoryEntries[i].getTelephoneExtension());
+            System.out.println(directoryEntries[i].getSurname());
         }
 
     }
