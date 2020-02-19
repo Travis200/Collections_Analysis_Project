@@ -2,6 +2,7 @@ import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class HashMapDirectory implements Directory {
+    public static HashMapDirectory obj3 = new HashMapDirectory();
     public static HashMap<String, Entry> surnameHashMap = new HashMap<String, Entry>();
     public static HashMap<String, Entry> telExtensionHashMap = new HashMap<String, Entry>();
     //public static AtomicInteger atomicInteger = new AtomicInteger();
