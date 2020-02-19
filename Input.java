@@ -4,16 +4,19 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Array;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Input {
     public static ArrayDirectory obj1 = new ArrayDirectory();
     public static Input obj2 = new Input();
-    public void readFile() throws IOException {
+    //directoryObj = null;
+    public void readFile(String fileLoc) throws IOException {
         ArrayList<Entry> fileDataArrayList = new ArrayList<Entry>();
         String row;
-        BufferedReader csvReader = new BufferedReader(new FileReader("test_data_small.csv"));
+        BufferedReader csvReader = new BufferedReader(new FileReader(fileLoc));
         while ((row = csvReader.readLine()) != null) {
             String[] data = row.split(",");
             Entry fileLine = new Entry(data[0], data[1], data[2]);
@@ -22,7 +25,7 @@ public class Input {
         }
         csvReader.close();
         }
-        public void userInterface() {
+        public void userInterface() throws IOException {
             Scanner scannerObj = new Scanner(System.in);  // Create a Scanner object
             System.out.println("Would your like to use a CSV file (1) or Manually input entries(2)?");
             System.out.print("Input option 1 or 2: ");
@@ -32,17 +35,41 @@ public class Input {
                 userChoice1 = scannerObj.nextLine().trim();
             }
             if (userChoice1.equals("1")) {
-                System.out.println("CSV file");
-            } else {
-                System.out.println("Manual Entries");
+                System.out.println("CSV file will be used to input entries into the directory");
+                readFile("test_data_small.csv");
             }
-        }
-        public static void main (String[]args) throws IOException {
-                obj2.readFile();
-                obj1.deleteEntryUsingName("Mayow");
-                System.out.println(obj1.toArrayList());
-                //obj2.userInterface();
+            else {
+                System.out.println("Manual Entries");
+                System.out.print("Would you like to add an entry? (Y = yes, N = no)? ");
+                String userChoice2 = scannerObj.nextLine().trim().toUpperCase();
+                while (!((userChoice2.equals("Y")) || (userChoice2.equals("N")))) {
+                    System.out.print("Invalid input, please input Y or N: ");
+                    userChoice2 = scannerObj.nextLine().trim().toUpperCase();
+            }
+                while (!(userChoice2.equals("N"))){
+                    if (userChoice2.equals("Y")) {
+                        System.out.println("Store user entries here");
+                        System.out.print("Surname: ");
+                        String surname = scannerObj.nextLine().trim();
+                        System.out.print("Initials: ");
+                        String initials = scannerObj.nextLine().trim().toUpperCase();
+                        System.out.print("Telephone Extension: ");
+                        String telExt = scannerObj.nextLine().trim();
+                        Entry entry1 = new Entry(surname, initials, telExt);
+                        ArrayDirectory.obj1.insertEntry(entry1);
+                        System.out.print("Would you like to add another entry? (Y = yes, N = no)? ");
+                        userChoice2 = scannerObj.nextLine().trim().toUpperCase();
+                    }
+                    else {
+                        System.out.print("Invalid input, please input Y or N: ");
+                        userChoice2 = scannerObj.nextLine().trim().toUpperCase();
+                    }
                 }
+                    System.out.println("Ok, no more entries will be added.");
+
+                }
+        }
+
 }
 
 

@@ -3,7 +3,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ArrayDirectory implements Directory {
-
+    public static ArrayDirectory obj1 = new ArrayDirectory();
     public static Entry[] directoryEntries = new Entry[0];
 
     @Override
@@ -73,18 +73,17 @@ public class ArrayDirectory implements Directory {
         return arrayList;
     }
 
-    public static void main(String[] args) {
-        ArrayDirectory obj1 = new ArrayDirectory();
-        Entry entry1 = new Entry("Higgins", "T.S.H", "11111");
-        Entry entry2 = new Entry("Waterhouse","L.W.W","22222");
-        Entry entry3 = new Entry("Mclaughlin", "M.M.M", "33333");
-        obj1.insertEntry(entry1);
-        obj1.insertEntry(entry2);
-        obj1.insertEntry(entry3);
-        obj1.deleteEntryUsingName("Higgins");
-        for(int i=0;i<directoryEntries.length;i++){
-            System.out.println(directoryEntries[i].getSurname());
-        }
+    //public static void main(String[] args) {
+        //Entry entry1 = new Entry("Higgins", "T.S.H", "11111");
+        //Entry entry2 = new Entry("Waterhouse","L.W.W","22222");
+        //Entry entry3 = new Entry("Mclaughlin", "M.M.M", "33333");
+        //obj1.insertEntry(entry1);
+        //obj1.insertEntry(entry2);
+        //obj1.insertEntry(entry3);
+        //obj1.deleteEntryUsingName("Higgins");
+        //for(int i=0;i<directoryEntries.length;i++){
+            //System.out.println(directoryEntries[i].getSurname());
+        //}
 
-    }
+    //}
 }

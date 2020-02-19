@@ -4,11 +4,11 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class HashMapDirectory implements Directory {
     public static HashMap<String, Entry> surnameHashMap = new HashMap<String, Entry>();
     public static HashMap<String, Entry> telExtensionHashMap = new HashMap<String, Entry>();
-    public static AtomicInteger atomicInteger = new AtomicInteger();
-    public static Integer counter = 0;
+    //public static AtomicInteger atomicInteger = new AtomicInteger();
+    //public static Integer counter = 0;
     @Override
     public void insertEntry(Entry entry) {
-        counter = atomicInteger.incrementAndGet();
+        //counter = atomicInteger.incrementAndGet();
         String surname = entry.getSurname();
         String telExtension = entry.getTelephoneExtension();
         surnameHashMap.put(surname, entry);
@@ -86,23 +86,5 @@ public class HashMapDirectory implements Directory {
         return returnArrayList;
     }
 
-    public static void main(String[] args) {
-        //System.out.println("hello world");
-        HashMapDirectory obj3 = new HashMapDirectory();
-        Entry entry1 = new Entry("Higgins", "T.S.H", "11111");
-        Entry entry2 = new Entry("Waterhouse","L.W.W","22222");
-        Entry entry3 = new Entry("Mclaughlin", "M.M.M", "33333");
-        obj3.insertEntry(entry1);
-        obj3.insertEntry(entry2);
-        obj3.insertEntry(entry3);
-        obj3.updateExtensionUsingName("Higgins", "44444");
-        System.out.println(obj3.toArrayList());
-        //obj3.deleteEntryUsingName("Higgins");
-        //obj3.deleteEntryUsingExtension("22222");
-        //System.out.println(obj3.lookupExtension("Waterhouse"));
-        //System.out.println(surnameHashMap);
-        //System.out.println(telExtensionHashMap);
-        //Entry testing1 = surnameHashMap.get("Higgins");
-        //System.out.println(testing1.getTelephoneExtension());
-    }
+
 }

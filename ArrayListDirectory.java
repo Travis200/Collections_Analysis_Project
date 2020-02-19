@@ -56,23 +56,4 @@ public class ArrayListDirectory implements Directory {
             return directoryEntriesArrayList;
         }
 
-        public static void main(String[] args) {
-            ArrayListDirectory obj2 = new ArrayListDirectory();
-            Entry entry1 = new Entry("Higgins", "T.S.H", "11111");
-            Entry entry2 = new Entry("Waterhouse","L.W.W","22222");
-            Entry entry3 = new Entry("Mclaughlin", "M.M.M", "33333");
-            obj2.insertEntry(entry1);
-            obj2.insertEntry(entry2);
-            obj2.insertEntry(entry3);
-            //System.out.println(obj2.toArrayList());
-            //Entry[] directoryEntries = new Entry[2];
-            //System.out.println(directoryEntries);
-            System.out.println(directoryEntriesArrayList);
-            for(int i=0;i<directoryEntriesArrayList.size();i++){
-                System.out.println(directoryEntriesArrayList.get(i).getTelephoneExtension());
-            }
-
-
-        }
-
 }
