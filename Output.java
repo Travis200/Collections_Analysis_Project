@@ -1,7 +1,5 @@
 import java.io.FileWriter;   // Import the FileWriter class
 import java.io.IOException;  // Import the IOException class to handle errors
-import java.sql.SQLOutput;
-import java.util.Arrays;
 import java.util.List;
 
 public class Output {
@@ -24,16 +22,20 @@ public class Output {
 
     public void tableWriter() {
         List<Entry> data = ArrayListDirectory.obj2.toArrayList();
-        System.out.println("+-------------+--------------+---------------+");
-        System.out.println("|   Surname   |   Initials   |     Extension |");
-        System.out.println("+-------------+--------------+---------------+");
+        System.out.println("+---------------+---------------+---------------+");
+        System.out.println("|   Surname     |   Initials    |  Extension    |");
+        System.out.println("+---------------+---------------+---------------+");
         for (int i = 0; i < data.size(); i++) {
             String surname1 = data.get(i).getSurname();
             String initials1 = data.get(i).getInitials();
             String telephoneExtension1 = data.get(i).getTelephoneExtension();
-            String stringOfEntryLine = "   |   " + surname1 + "   |   " + initials1 + "   |   " + telephoneExtension1 + "   |   ";
+            String formattedSurname =  String .format("%-9s", surname1);
+            String formattedInitials =  String .format("%-9s", initials1);
+            String formattedExtension =  String .format("%-9s", telephoneExtension1);
+
+            String stringOfEntryLine = "|   " + formattedSurname + "   |   " + formattedInitials + "   |   " + formattedExtension + "   |";
             System.out.println(stringOfEntryLine);
         }
-        System.out.println("+-------------+--------------+---------------+");
+        System.out.println("+---------------+---------------+---------------+");
     }
 }
