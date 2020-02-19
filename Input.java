@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Input {
-    public static ArrayDirectory obj1 = new ArrayDirectory();
     public static Input obj2 = new Input();
     public static String userChoice2 = null;
     public void readFile(String fileLoc) throws IOException {
@@ -19,7 +18,7 @@ public class Input {
         BufferedReader csvReader = new BufferedReader(new FileReader(fileLoc));
         while ((row = csvReader.readLine()) != null) {
             String[] data = row.split(",");
-            Entry fileLine = new Entry(data[0], data[1], data[2]);k
+            Entry fileLine = new Entry(data[0], data[1], data[2]);
             directoryEntryInsert(userChoice2, fileLine);
         }
         csvReader.close();
@@ -62,6 +61,11 @@ public class Input {
                         String initials = scannerObj.nextLine().trim().toUpperCase();
                         System.out.print("Telephone Extension: ");
                         String telExt = scannerObj.nextLine().trim();
+                        while(telExt.length() != 5) {
+                            System.out.println("Telephone extension must be exactly 5 numbers long");
+                            System.out.print("Please enter the telephone extension again: ");
+                            telExt = scannerObj.nextLine().trim();
+                        }
                         Entry entry1 = new Entry(surname, initials, telExt);
                         directoryEntryInsert(userChoice2, entry1);
                         System.out.print("Would you like to add another entry? (Y = yes, N = no)? ");
