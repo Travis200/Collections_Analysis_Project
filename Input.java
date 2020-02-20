@@ -19,7 +19,7 @@ public class Input {
         BufferedReader csvReader = new BufferedReader(new FileReader(fileLoc));
         while ((row = csvReader.readLine()) != null) {
             String[] data = row.split(",");
-            Entry fileLine = new Entry(data[0], data[1], data[2]);k
+            Entry fileLine = new Entry(data[0], data[1], data[2]);
             directoryEntryInsert(userChoice2, fileLine);
         }
         csvReader.close();
