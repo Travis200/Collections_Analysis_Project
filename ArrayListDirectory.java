@@ -3,14 +3,17 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ArrayListDirectory implements Directory {
-        public static ArrayListDirectory obj2 = new ArrayListDirectory();
+        public static ArrayListDirectory arrayListDirectoryObj = new ArrayListDirectory();
         public static ArrayList<Entry> directoryEntriesArrayList = new ArrayList<Entry>();
 
         @Override
         public void insertEntry(Entry entry) {
+            String isInArrayList = lookupExtension(entry.getSurname());
+            if (isInArrayList != null) {
+                return;
+            }
             directoryEntriesArrayList.add(entry);
         }
-
         @Override
         public void deleteEntryUsingName(String surname) {
             for (int i = 0; i < directoryEntriesArrayList.size(); i++) {
@@ -41,7 +44,6 @@ public class ArrayListDirectory implements Directory {
         @Override
         public String lookupExtension(String surname) {
             String result = null;
-            System.out.println();
             for (int i = 0; i < directoryEntriesArrayList.size(); i++) {
                 if (directoryEntriesArrayList.get(i).getSurname().equals(surname)) {
                     result = directoryEntriesArrayList.get(i).getTelephoneExtension();
