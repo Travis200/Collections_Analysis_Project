@@ -6,13 +6,13 @@ import java.util.Scanner;
 public class Input {
     public static Input inputObj = new Input();
     public static String userChoice2 = null;
-    public void readFile(String fileLoc) throws IOException {
+    public void readFile(String fileLoc, String dirChoice) throws IOException {
         String row;
         BufferedReader csvReader = new BufferedReader(new FileReader(fileLoc));
         while ((row = csvReader.readLine()) != null) {
             String[] data = row.split(",");
             Entry fileLine = new Entry(data[0], data[1], data[2]);
-            directoryEntryInsert(userChoice2, fileLine);
+            directoryEntryInsert(dirChoice, fileLine);
         }
         csvReader.close();
         }
@@ -35,7 +35,7 @@ public class Input {
             }
             if (userChoice1.equals("1")) {
                 System.out.println("CSV file will be used to input entries into the directory");
-                readFile(fileLoc);
+                readFile(fileLoc, userChoice2);
             }
             else {
                 System.out.println("You have chosen to input entries into the directory manually");
