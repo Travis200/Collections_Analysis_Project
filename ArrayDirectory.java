@@ -42,7 +42,6 @@ public class ArrayDirectory implements Directory {
 
     @Override
     public void updateExtensionUsingName(String surname, String newNumber) {
-        ArrayList<Entry> directoryEntriesArrayList = new ArrayList<Entry>(Arrays.asList(directoryEntries));
         for (Entry directoryEntry : directoryEntries) {
             if (directoryEntry.getSurname().equals(surname)) {
                 directoryEntry.setTelephoneExtension(newNumber);
@@ -53,7 +52,6 @@ public class ArrayDirectory implements Directory {
     @Override
     public String lookupExtension(String surname) {
         String result = null;
-        System.out.println();
         for (int i = 0; i < directoryEntries.length; i++) {
             if (directoryEntries[i].getSurname().equals(surname)) {
                 result = directoryEntries[i].getTelephoneExtension();

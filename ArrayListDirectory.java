@@ -41,7 +41,6 @@ public class ArrayListDirectory implements Directory {
         @Override
         public String lookupExtension(String surname) {
             String result = null;
-            System.out.println();
             for (int i = 0; i < directoryEntriesArrayList.size(); i++) {
                 if (directoryEntriesArrayList.get(i).getSurname().equals(surname)) {
                     result = directoryEntriesArrayList.get(i).getTelephoneExtension();
