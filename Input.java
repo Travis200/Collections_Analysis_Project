@@ -1,19 +1,12 @@
-import org.w3c.dom.ls.LSOutput;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.lang.reflect.Array;
-import java.sql.SQLOutput;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Input {
-    public static Input obj2 = new Input();
+    public static Input inputObj = new Input();
     public static String userChoice2 = null;
     public void readFile(String fileLoc) throws IOException {
-        ArrayList<Entry> fileDataArrayList = new ArrayList<Entry>();
         String row;
         BufferedReader csvReader = new BufferedReader(new FileReader(fileLoc));
         while ((row = csvReader.readLine()) != null) {
@@ -82,14 +75,14 @@ public class Input {
         }
         public void directoryEntryInsert(String userChoice2, Entry entryLine){
         if (userChoice2.equals("1")){
-            ArrayDirectory.obj1.insertEntry(entryLine);
+            ArrayDirectory.arrayDirectoryObj.insertEntry(entryLine);
 
         }
         else if (userChoice2.equals("2")){
-            ArrayListDirectory.obj2.insertEntry(entryLine);
+            ArrayListDirectory.arrayListDirectoryObj.insertEntry(entryLine);
         }
         else {
-            HashMapDirectory.obj3.insertEntry(entryLine);
+            HashMapDirectory.hashMapDirectoryObj.insertEntry(entryLine);
         }
         }
 

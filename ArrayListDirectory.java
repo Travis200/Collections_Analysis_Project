@@ -3,7 +3,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ArrayListDirectory implements Directory {
-        public static ArrayListDirectory obj2 = new ArrayListDirectory();
+        public static ArrayListDirectory arrayListDirectoryObj = new ArrayListDirectory();
         public static ArrayList<Entry> directoryEntriesArrayList = new ArrayList<Entry>();
 
         @Override
