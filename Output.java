@@ -39,20 +39,20 @@ public class Output {
     public void tableWriter(String dirChoice) {
         ArrayList<Entry> data = dirToUse(dirChoice);
         System.out.println("This is data returned in an ASCII table:");
-        System.out.println("+---------------+---------------+---------------+");
-        System.out.println("|   Surname     |   Initials    |  Extension    |");
-        System.out.println("+---------------+---------------+---------------+");
+        System.out.println("+---------------------+---------------------+---------------------+");
+        System.out.println("|   Surname           |   Initials          |  Extension          |");
+        System.out.println("+---------------------+---------------------+---------------------+");
         for (int i = 0; i < data.size(); i++) {
             String surname1 = data.get(i).getSurname();
             String initials1 = data.get(i).getInitials();
             String telephoneExtension1 = data.get(i).getTelephoneExtension();
-            String formattedSurname =  String .format("%-9s", surname1);
-            String formattedInitials =  String .format("%-9s", initials1);
-            String formattedExtension =  String .format("%-9s", telephoneExtension1);
+            String formattedSurname =  String .format("%-15s", surname1);
+            String formattedInitials =  String .format("%-15s", initials1);
+            String formattedExtension =  String .format("%-15s", telephoneExtension1);
 
             String stringOfEntryLine = "|   " + formattedSurname + "   |   " + formattedInitials + "   |   " + formattedExtension + "   |";
             System.out.println(stringOfEntryLine);
         }
-        System.out.println("+---------------+---------------+---------------+");
+        System.out.println("+---------------------+---------------------+---------------------+");
     }
 }

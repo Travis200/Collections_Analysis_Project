@@ -7,7 +7,6 @@ public class Entry {
         this.surname = args1;
         this.initials = args2;
         this.telephoneExtension = args3;
-
     }
 
     public String getSurname() {
