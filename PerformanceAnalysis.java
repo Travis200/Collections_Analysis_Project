@@ -1,7 +1,12 @@
 public class PerformanceAnalysis {
+public static StopWatch stopWatchObj = new StopWatch();
+public static Entry testEntry = new Entry("Higgins", "T.S.H", "01205");
 
     public void arrayTestInsert() {
-
+        stopWatchObj.reset();
+        stopWatchObj.start();
+        ArrayDirectory.arrayDirectoryObj.insertEntry(testEntry);
+        stopWatchObj.stop();
     }
     public void arrayListTestInsert(){
 
