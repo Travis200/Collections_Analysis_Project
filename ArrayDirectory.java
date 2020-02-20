@@ -8,10 +8,14 @@ public class ArrayDirectory implements Directory {
 
     @Override
     public void insertEntry(Entry entry) {
-        Entry[] tempArray = new Entry[directoryEntries.length+1];
-        System.arraycopy(directoryEntries, 0, tempArray, 0, directoryEntries.length);
-        tempArray[directoryEntries.length] = entry;
-        directoryEntries = tempArray;
+        String isInArray = lookupExtension(entry.getSurname());
+        if (isInArray != null) {
+            return;
+        }
+            Entry[] tempArray = new Entry[directoryEntries.length + 1];
+            System.arraycopy(directoryEntries, 0, tempArray, 0, directoryEntries.length);
+            tempArray[directoryEntries.length] = entry;
+            directoryEntries = tempArray;
     }
 
     @Override

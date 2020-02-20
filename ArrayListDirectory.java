@@ -8,9 +8,12 @@ public class ArrayListDirectory implements Directory {
 
         @Override
         public void insertEntry(Entry entry) {
+            String isInArrayList = lookupExtension(entry.getSurname());
+            if (isInArrayList != null) {
+                return;
+            }
             directoryEntriesArrayList.add(entry);
         }
-
         @Override
         public void deleteEntryUsingName(String surname) {
             for (int i = 0; i < directoryEntriesArrayList.size(); i++) {

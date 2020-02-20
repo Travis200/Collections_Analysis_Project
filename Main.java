@@ -2,11 +2,10 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        Input.inputObj.userInterface();
-        Output.outputObj.fileWriter("write_data.csv");
-        HashMapDirectory.hashMapDirectoryObj.updateExtensionUsingName("Bob", "88888");
-        System.out.println(HashMapDirectory.telExtensionHashMap.get("88888").getTelephoneExtension());
-        System.out.println(HashMapDirectory.surnameHashMap.get("Bob").getTelephoneExtension());
+        Input.inputObj.userInterface("test_data.csv");
+        String sameDirAsInput = Input.userChoice2;
+        Output.outputObj.fileWriter("write_data.csv", sameDirAsInput);
+        Output.outputObj.tableWriter(sameDirAsInput);
         //ArrayDirectory.arrayDirectoryObj.deleteEntryUsingName("Peter");
         //Output.outputObj.tableWriter();
 

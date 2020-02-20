@@ -7,6 +7,10 @@ public class HashMapDirectory implements Directory {
     public static HashMap<String, Entry> telExtensionHashMap = new HashMap<String, Entry>();
     @Override
     public void insertEntry(Entry entry) {
+        String isInHashMap = lookupExtension(entry.getSurname());
+        if (isInHashMap != null) {
+            return;
+        }
         String surname = entry.getSurname();
         String telExtension = entry.getTelephoneExtension();
         surnameHashMap.put(surname, entry);
@@ -43,7 +47,10 @@ public class HashMapDirectory implements Directory {
 
     @Override
     public String lookupExtension(String surname) {
-        String returnValue = surnameHashMap.get(surname).getTelephoneExtension();
+        String returnValue = null;
+        if(surnameHashMap.containsKey(surname)) {
+            returnValue = surnameHashMap.get(surname).getTelephoneExtension();
+        }
         return returnValue;
 
     }

@@ -16,7 +16,7 @@ public class Input {
         }
         csvReader.close();
         }
-        public void userInterface() throws IOException {
+        public void userInterface(String fileLoc) throws IOException {
             Scanner scannerObj = new Scanner(System.in);  // Create a Scanner object
             System.out.println("Would your like to use a CSV file (1) or Manually input entries(2)?");
             System.out.print("Input option 1 or 2: ");
@@ -35,7 +35,7 @@ public class Input {
             }
             if (userChoice1.equals("1")) {
                 System.out.println("CSV file will be used to input entries into the directory");
-                readFile("test_data_small.csv");
+                readFile(fileLoc);
             }
             else {
                 System.out.println("You have chosen to input entries into the directory manually");
