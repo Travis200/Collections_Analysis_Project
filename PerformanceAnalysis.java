@@ -274,9 +274,6 @@ public class PerformanceAnalysis {
         }
         long meanExecution = totalOfAllExecutions / counter;
         long[] arrayOfResults = {bestExecution, worstExecution, meanExecution};
-        //System.out.println(bestExecution);
-        //System.out.println(worstExecution);
-        //System.out.println(meanExecution);
         return arrayOfResults;
     }
         public long[][] arrayOfResults() throws IOException {

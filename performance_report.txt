@@ -1,16 +1,18 @@
 PERFORMANCE ANALYSIS REPORT
 ---------------------------
                            
+Each of the methods specified below have been run 1000x for each directory.
+The data below shows the calculated best, worst and mean execution times.
                            
-Array: InsertMethod                Best execution time: 400       Worst execution time: 1965400   Mean execution time: 4156      
-ArrayList: InsertMethod            Best execution time: 500       Worst execution time: 905500    Mean execution time: 1819      
-HashMap: InsertMethod              Best execution time: 300       Worst execution time: 1361700   Mean execution time: 1787      
-Array: LookUpMethod                Best execution time: 3300      Worst execution time: 32300     Mean execution time: 5305      
-ArrayList: LookUpMethod            Best execution time: 3500      Worst execution time: 27000     Mean execution time: 4163      
-HashMap :LookUpMethod              Best execution time: 4100      Worst execution time: 49400     Mean execution time: 9780      
-Array: DeleteSurnameMethod         Best execution time: 6300      Worst execution time: 192300    Mean execution time: 16322     
-ArrayList: DeleteSurnameMethod     Best execution time: 5100      Worst execution time: 271400    Mean execution time: 20803     
-HashMap: DeleteSurnameMethod       Best execution time: 500       Worst execution time: 37700     Mean execution time: 1467      
-Array: DeleteExtensionMethod       Best execution time: 7900      Worst execution time: 174400    Mean execution time: 17930     
-ArrayList: DeleteExtensionMethod   Best execution time: 6600      Worst execution time: 196200    Mean execution time: 18568     
-HashMap: DeleteExtensionMethod     Best execution time: 500       Worst execution time: 32100     Mean execution time: 1249      
+Array: InsertMethod                Best execution time: 400   Worst execution time: 2569700   Mean execution time: 5610      
+ArrayList: InsertMethod            Best execution time: 700   Worst execution time: 990700    Mean execution time: 2003      
+HashMap: InsertMethod              Best execution time: 300   Worst execution time: 1191300   Mean execution time: 1581      
+Array: LookUpMethod                Best execution time: 3400  Worst execution time: 43800     Mean execution time: 6875      
+ArrayList: LookUpMethod            Best execution time: 3400  Worst execution time: 77200     Mean execution time: 6831      
+HashMap :LookUpMethod              Best execution time: 4400  Worst execution time: 67700     Mean execution time: 11000     
+Array: DeleteSurnameMethod         Best execution time: 6300  Worst execution time: 310700    Mean execution time: 22816     
+ArrayList: DeleteSurnameMethod     Best execution time: 5300  Worst execution time: 363100    Mean execution time: 25028     
+HashMap: DeleteSurnameMethod       Best execution time: 400   Worst execution time: 45600     Mean execution time: 2157      
+Array: DeleteExtensionMethod       Best execution time: 7900  Worst execution time: 705600    Mean execution time: 34429     
+ArrayList: DeleteExtensionMethod   Best execution time: 6500  Worst execution time: 613000    Mean execution time: 30643     
+HashMap: DeleteExtensionMethod     Best execution time: 500   Worst execution time: 23600     Mean execution time: 1341      

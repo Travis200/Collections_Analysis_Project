@@ -45,11 +45,13 @@ public class Output {
             myWriter.write("PERFORMANCE ANALYSIS REPORT\n");
             myWriter.write("---------------------------\n");
             myWriter.write("                           \n");
+            myWriter.write("Each of the methods specified below have been run 1000x for each directory.\n");
+            myWriter.write("The data below shows the calculated best, worst and mean execution times.\n");
             myWriter.write("                           \n");
             long[][] resultsArray = PerformanceAnalysis.performanceAnalysisObj.arrayOfResults();
             for (int i = 0; i < 12 ; i++) {
                 long[] testResults = resultsArray[i];
-                String value1 = String.format("%-10s",String.valueOf(testResults[0] ));
+                String value1 = String.format("%-6s",String.valueOf(testResults[0] ));
                 String value2 = String.format("%-10s",String.valueOf(testResults[1] ));
                 String value3 = String.format("%-10s",String.valueOf(testResults[2] ));
                 String resultTitle = String.format("%-35s",String.valueOf(resultTitles[i] ));
@@ -57,7 +59,7 @@ public class Output {
                 myWriter.write(stringOfReportLine);
                 myWriter.write("\n");
             }
-        System.out.println("The data has been output to " + fileName + " in the form of a CSV file.");
+        System.out.println("The performance analysis data has been output to " + fileName + " in the form of a txt file.");
         myWriter.close();
     }
 

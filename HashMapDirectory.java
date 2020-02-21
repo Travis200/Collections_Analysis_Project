@@ -40,8 +40,6 @@ public class HashMapDirectory implements Directory {
         telExtensionHashMap.put(newNumber,entryToChange);
         surnameHashMap.put(surname,entryToChange);
 
-
-
     }
 
 
