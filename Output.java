@@ -1,8 +1,6 @@
 import java.io.FileWriter;   // Import the FileWriter class
 import java.io.IOException;  // Import the IOException class to handle errors
-import java.sql.SQLOutput;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Output {
     public static Output outputObj = new Output();

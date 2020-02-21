@@ -28,7 +28,7 @@ public class HashMapDirectory implements Directory {
     public void deleteEntryUsingExtension(String number) {
         String surname = telExtensionHashMap.get(number).getSurname();
         telExtensionHashMap.remove(number);
-        telExtensionHashMap.remove(surname);
+        surnameHashMap.remove(surname);
     }
 
     @Override

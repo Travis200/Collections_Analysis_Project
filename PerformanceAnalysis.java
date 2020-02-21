@@ -59,7 +59,7 @@ public class PerformanceAnalysis {
         }
     }
 
-    public long hashMapTestLookup() throws IOException {
+    public long hashMapTestLookUp() throws IOException {
         stopWatchObj.reset();
         Input.inputObj.readFile("test_data.csv", "3");
         ArrayList<Entry> arr = (ArrayList<Entry>) HashMapDirectory.hashMapDirectoryObj.toArrayList();
@@ -143,36 +143,144 @@ public class PerformanceAnalysis {
         return stopWatchObj.getElapsedTime();
     }
 
-    public void analysis() {
+    public void arrayInsertExecutions() {
         ArrayList<Long> arrayListOfTimes = new ArrayList<Long>();
         for (int i = 0; i < 1000; i++) {
             long time = arrayTestInsert();
-            //System.out.println(time);
-            //Integer x = (int) (long) time;
             arrayListOfTimes.add(time);
-
         }
-        System.out.println(arrayListOfTimes);
-        Long[] arrayOfTimes = arrayListOfTimes.toArray(new Long[0]);
-        //Arrays.stream(arrayOfTimes).filter(Objects::nonNull).mapToLong(Long::longValue).toArray();
+        long[] result = bestWorstMeanCalc(arrayListOfTimes);
+        System.out.println(Arrays.toString(result));
+    }
 
-        //long[] arrayOfTimesPrimitive = ArrayUtils.toPrimitive(arrayListOfTimes);
+    public void arrayListInsertExecutions() {
+        ArrayList<Long> arrayListOfTimes = new ArrayList<Long>();
+        for (int i = 0; i < 1000; i++) {
+            long time = arrayListTestInsert();
+            arrayListOfTimes.add(time);
+        }
+        long[] result = bestWorstMeanCalc(arrayListOfTimes);
+        System.out.println(Arrays.toString(result));
+    }
+
+    public void hashMapInsertExecutions() {
+        ArrayList<Long> arrayListOfTimes = new ArrayList<Long>();
+        for (int i = 0; i < 1000; i++) {
+            long time = hashMapTestInsert();
+            arrayListOfTimes.add(time);
+        }
+        long[] result = bestWorstMeanCalc(arrayListOfTimes);
+        System.out.println(Arrays.toString(result));
+    }
+
+    public void arrayLookUpExecutions() throws IOException {
+        ArrayList<Long> arrayListOfTimes = new ArrayList<Long>();
+        for (int i = 0; i < 1000; i++) {
+            long time = arrayTestLookUp();
+            arrayListOfTimes.add(time);
+        }
+        long[] result = bestWorstMeanCalc(arrayListOfTimes);
+        System.out.println(Arrays.toString(result));
+    }
+
+    public void arrayListLookUpExecutions() throws IOException {
+        ArrayList<Long> arrayListOfTimes = new ArrayList<Long>();
+        for (int i = 0; i < 1000; i++) {
+            long time = arrayListTestLookUp();
+            arrayListOfTimes.add(time);
+        }
+        long[] result = bestWorstMeanCalc(arrayListOfTimes);
+        System.out.println(Arrays.toString(result));
+    }
+
+    public void hashMapLookUpExecutions() throws IOException {
+        ArrayList<Long> arrayListOfTimes = new ArrayList<Long>();
+        for (int i = 0; i < 1000; i++) {
+            long time = hashMapTestLookUp();
+            arrayListOfTimes.add(time);
+        }
+        long[] result = bestWorstMeanCalc(arrayListOfTimes);
+        System.out.println(Arrays.toString(result));
+    }
+
+    public void arrayDeleteSurnameExecutions() throws IOException {
+        ArrayList<Long> arrayListOfTimes = new ArrayList<Long>();
+        for (int i = 0; i < 1000; i++) {
+            long time = arrayTestDeleteSurname();
+            arrayListOfTimes.add(time);
+        }
+        long[] result = bestWorstMeanCalc(arrayListOfTimes);
+        System.out.println(Arrays.toString(result));
+    }
+
+    public void arrayListDeleteSurnameExecutions() throws IOException {
+        ArrayList<Long> arrayListOfTimes = new ArrayList<Long>();
+        for (int i = 0; i < 1000; i++) {
+            long time = arrayListTestDeleteSurname();
+            arrayListOfTimes.add(time);
+        }
+        long[] result = bestWorstMeanCalc(arrayListOfTimes);
+        System.out.println(Arrays.toString(result));
+    }
+
+    public void hashMapDeleteSurnameExecutions() throws IOException {
+        ArrayList<Long> arrayListOfTimes = new ArrayList<Long>();
+        for (int i = 0; i < 1000; i++) {
+            long time = hashMapTestDeleteSurname();
+            arrayListOfTimes.add(time);
+        }
+        long[] result = bestWorstMeanCalc(arrayListOfTimes);
+        System.out.println(Arrays.toString(result));
+    }
+
+    public void arrayDeleteExtensionExecutions() throws IOException {
+        ArrayList<Long> arrayListOfTimes = new ArrayList<Long>();
+        for (int i = 0; i < 1000; i++) {
+            long time = arrayTestDeleteExtension();
+            arrayListOfTimes.add(time);
+        }
+        long[] result = bestWorstMeanCalc(arrayListOfTimes);
+        System.out.println(Arrays.toString(result));
+    }
+    public void arrayListDeleteExtensionExecutions() throws IOException {
+        ArrayList<Long> arrayListOfTimes = new ArrayList<Long>();
+        for (int i = 0; i < 1000; i++) {
+            long time = arrayListTestDeleteExtension();
+            arrayListOfTimes.add(time);
+        }
+        long[] result = bestWorstMeanCalc(arrayListOfTimes);
+        System.out.println(Arrays.toString(result));
+    }
+
+    public void hashMapDeleteExtensionExecutions() throws IOException {
+        ArrayList<Long> arrayListOfTimes = new ArrayList<Long>();
+        for (int i = 0; i < 1000; i++) {
+            long time = hashMapTestDeleteExtension();
+            arrayListOfTimes.add(time);
+        }
+        long[] result = bestWorstMeanCalc(arrayListOfTimes);
+        System.out.println(Arrays.toString(result));
+    }
+
+
+    public long[] bestWorstMeanCalc(ArrayList<Long> arrayListOfTimes){
+        Long[] arrayOfTimes = arrayListOfTimes.toArray(new Long[0]);
         Arrays.sort(arrayOfTimes);
         Long bestExecution = arrayOfTimes[0];
-        Long worstExecution = arrayOfTimes[arrayOfTimes.length-1];
-        System.out.println(bestExecution);
-        System.out.println(worstExecution);
-        long averageExecution = 0;
+        Long worstExecution = arrayOfTimes[arrayOfTimes.length - 1];
         long totalOfAllExecutions = 0;
         long counter = 0;
         for (Long executionTime : arrayOfTimes) {
             counter += 1;
             totalOfAllExecutions += executionTime;
         }
-        System.out.println(totalOfAllExecutions);
-        long meanExecution = totalOfAllExecutions/counter;
-        System.out.println(meanExecution);
-
+        long meanExecution = totalOfAllExecutions / counter;
+        long[] arrayOfResults = {bestExecution, worstExecution, meanExecution};
+        //System.out.println(bestExecution);
+        //System.out.println(worstExecution);
+        //System.out.println(meanExecution);
+        return arrayOfResults;
     }
+
 }
 

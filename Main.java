@@ -20,8 +20,32 @@ public class Main {
         PerformanceAnalysis.performanceAnalysisObj.arrayTestInsert();
         PerformanceAnalysis.performanceAnalysisObj.arrayListTestInsert();
         PerformanceAnalysis.performanceAnalysisObj.hashMapTestInsert();
-*/
-        PerformanceAnalysis.performanceAnalysisObj.analysis();
+
+         */
+        PerformanceAnalysis.performanceAnalysisObj.arrayInsertExecutions();
+        PerformanceAnalysis.performanceAnalysisObj.arrayListInsertExecutions();
+        PerformanceAnalysis.performanceAnalysisObj.hashMapInsertExecutions();
+        PerformanceAnalysis.performanceAnalysisObj.arrayDeleteExtensionExecutions();
+        PerformanceAnalysis.performanceAnalysisObj.arrayListDeleteExtensionExecutions();
+        PerformanceAnalysis.performanceAnalysisObj.hashMapDeleteExtensionExecutions();
+        PerformanceAnalysis.performanceAnalysisObj.arrayDeleteSurnameExecutions();
+        PerformanceAnalysis.performanceAnalysisObj.arrayListDeleteSurnameExecutions();
+        PerformanceAnalysis.performanceAnalysisObj.hashMapDeleteSurnameExecutions();
+        PerformanceAnalysis.performanceAnalysisObj.arrayLookUpExecutions();
+        PerformanceAnalysis.performanceAnalysisObj.arrayListLookUpExecutions();
+        PerformanceAnalysis.performanceAnalysisObj.hashMapLookUpExecutions();
+
+
+        //System.out.println(PerformanceAnalysis.performanceAnalysisObj.hashMapTestDeleteExtension());
+
+
+
+
+
+
+
+
+
         //Input.inputObj.readFile("test_data.csv", "1");
         //Input.inputObj.readFile("test_data.csv", "1");
         //Output.outputObj.fileWriter("write_data.csv", "1");
