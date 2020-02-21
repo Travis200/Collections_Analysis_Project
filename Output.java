@@ -1,11 +1,11 @@
-import java.io.FileWriter;   // Import the FileWriter class
+import java.io.FileWriter;
 import java.io.IOException;  // Import the IOException class to handle errors
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Output {
     public static Output outputObj = new Output();
-
+    //This method returns a string value depending on which directory the data will be read from
+    //1 = ArrayDirectory, 2 = ArrayListDirectory, 3 = HashMapDirectory
     public ArrayList<Entry> dirToUse (String dirChoice) {
         ArrayList<Entry> data = null;
         if(dirChoice.equals("1")) {
@@ -19,10 +19,11 @@ public class Output {
         }
         return  data;
     }
-
+    //This method is used to write the data from the given directory to a CSV file
     public void fileWriter(String fileName, String dirChoice) throws IOException {
         FileWriter myWriter = new FileWriter(fileName);
         ArrayList<Entry> data = dirToUse(dirChoice);
+        //This for loop iterates through each entry and in the ArrayList and line by line writes each entry to the file
         for (int i = 0; i < data.size(); i++) {
             String surname1 = data.get(i).getSurname();
             String initials1 = data.get(i).getInitials();
@@ -34,7 +35,7 @@ public class Output {
         System.out.println("The data has been output to " + fileName + " in the form of a CSV file.");
         myWriter.close();
     }
-
+        //This method writes my performance analysis data to a txt file
         public void performanceAnalysisReport(String fileName) throws IOException {
             FileWriter myWriter = new FileWriter(fileName);
             String[] resultTitles = {"Array: InsertMethod", "ArrayList: InsertMethod", "HashMap: InsertMethod",
@@ -46,7 +47,8 @@ public class Output {
             myWriter.write("---------------------------\n");
             myWriter.write("                           \n");
             myWriter.write("Each of the methods specified below have been run 1000x for each directory.\n");
-            myWriter.write("The data below shows the calculated best, worst and mean execution times.\n");
+            myWriter.write("The data below shows the calculated best, worst and mean " +
+                    "execution times in nanoseconds.\n");
             myWriter.write("                           \n");
             long[][] resultsArray = PerformanceAnalysis.performanceAnalysisObj.arrayOfResults();
             for (int i = 0; i < 12 ; i++) {
@@ -64,7 +66,7 @@ public class Output {
     }
 
 
-
+    //This method writes the data from the given directory to an ASCII table
     public void tableWriter(String dirChoice) {
         ArrayList<Entry> data = dirToUse(dirChoice);
         System.out.println("This is data returned in an ASCII table:");
@@ -75,6 +77,7 @@ public class Output {
             String surname1 = data.get(i).getSurname();
             String initials1 = data.get(i).getInitials();
             String telephoneExtension1 = data.get(i).getTelephoneExtension();
+            //This pads the strings with empty spaces
             String formattedSurname =  String .format("%-15s", surname1);
             String formattedInitials =  String .format("%-15s", initials1);
             String formattedExtension =  String .format("%-15s", telephoneExtension1);

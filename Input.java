@@ -6,6 +6,9 @@ import java.util.Scanner;
 public class Input {
     public static Input inputObj = new Input();
     public static String userChoice2 = null;
+
+    //This method reads the data from a CSV file and takes the file location and the directory to use as parameters
+    //for dirChoice: 1 = ArrayDirectory, 2 = ArrayListDirectory, 3 = HashMapDirectory
     public void readFile(String fileLoc, String dirChoice) throws IOException {
         String row;
         BufferedReader csvReader = new BufferedReader(new FileReader(fileLoc));
@@ -16,6 +19,7 @@ public class Input {
         }
         csvReader.close();
         }
+        //This method creates a user interface and takes the CSV file location which can be read as a parameter
         public void userInterface(String fileLoc) throws IOException {
             Scanner scannerObj = new Scanner(System.in);  // Create a Scanner object
             System.out.println("Would your like to use a CSV file (1) or Manually input entries(2)?");
@@ -73,6 +77,7 @@ public class Input {
 
                 }
         }
+        //This method inserts the data into users chosen directory
         public void directoryEntryInsert(String userChoice2, Entry entryLine){
         if (userChoice2.equals("1")){
             ArrayDirectory.arrayDirectoryObj.insertEntry(entryLine);

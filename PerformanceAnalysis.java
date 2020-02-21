@@ -7,6 +7,8 @@ public class PerformanceAnalysis {
     public static StopWatch stopWatchObj = new StopWatch();
     public static Entry testEntry = new Entry("Higgins", "T.S.H", "01205");
 
+    //These methods test the time taken to implement one cycle of the insertEntry method in each directory
+
     public long arrayTestInsert() {
         stopWatchObj.reset();
         stopWatchObj.start();
@@ -30,6 +32,8 @@ public class PerformanceAnalysis {
         stopWatchObj.stop();
         return stopWatchObj.getElapsedTime();
     }
+
+    //These methods test the time taken to implement one cycle of the lookUpExtension method in each directory
 
     public long arrayTestLookUp() throws IOException {
         stopWatchObj.reset();
@@ -69,6 +73,8 @@ public class PerformanceAnalysis {
         return stopWatchObj.getElapsedTime();
     }
 
+    //These methods test the time taken to implement one cycle of the deleteEntryUsingName method in each directory
+
     public long arrayTestDeleteSurname() throws IOException {
         stopWatchObj.reset();
         Input.inputObj.readFile("test_data.csv", "1");
@@ -105,6 +111,8 @@ public class PerformanceAnalysis {
         return stopWatchObj.getElapsedTime();
     }
 
+    //These methods test the time taken to implement one cycle of the deleteEntryUsingExtension method in each directory
+
     public long arrayTestDeleteExtension() throws IOException {
         stopWatchObj.reset();
         Input.inputObj.readFile("test_data.csv", "1");
@@ -140,6 +148,9 @@ public class PerformanceAnalysis {
         stopWatchObj.stop();
         return stopWatchObj.getElapsedTime();
     }
+
+
+    //These methods are used to run the tests 1000 times and save the results to an array
 
     public long[] arrayInsertExecutions() {
         ArrayList<Long> arrayListOfTimes = new ArrayList<Long>();
@@ -260,7 +271,7 @@ public class PerformanceAnalysis {
         return result;
     }
 
-
+    //This method calculates the best worst and mean average and returns the values in an array
     public long[] bestWorstMeanCalc(ArrayList<Long> arrayListOfTimes){
         Long[] arrayOfTimes = arrayListOfTimes.toArray(new Long[0]);
         Arrays.sort(arrayOfTimes);
@@ -276,20 +287,21 @@ public class PerformanceAnalysis {
         long[] arrayOfResults = {bestExecution, worstExecution, meanExecution};
         return arrayOfResults;
     }
-        public long[][] arrayOfResults() throws IOException {
-            long[][] resultsArray = new long[12][3];
-            resultsArray[0] = performanceAnalysisObj.arrayInsertExecutions();
-            resultsArray[1] = performanceAnalysisObj.arrayListInsertExecutions();
-            resultsArray[2] = performanceAnalysisObj.hashMapInsertExecutions();
-            resultsArray[3] = performanceAnalysisObj.arrayLookUpExecutions();
-            resultsArray[4] = performanceAnalysisObj.arrayListLookUpExecutions();
-            resultsArray[5] = performanceAnalysisObj.hashMapLookUpExecutions();
-            resultsArray[6] = performanceAnalysisObj.arrayDeleteSurnameExecutions();
-            resultsArray[7] = performanceAnalysisObj.arrayListDeleteSurnameExecutions();
-            resultsArray[8] = performanceAnalysisObj.hashMapDeleteSurnameExecutions();
-            resultsArray[9] = performanceAnalysisObj.arrayDeleteExtensionExecutions();
-            resultsArray[10] = performanceAnalysisObj.arrayListDeleteExtensionExecutions();
-            resultsArray[11] = performanceAnalysisObj.hashMapDeleteExtensionExecutions();
+    //This method adds all of the results from the performance analysis to a 2D Array
+    public long[][] arrayOfResults() throws IOException {
+        long[][] resultsArray = new long[12][3];
+        resultsArray[0] = performanceAnalysisObj.arrayInsertExecutions();
+        resultsArray[1] = performanceAnalysisObj.arrayListInsertExecutions();
+        resultsArray[2] = performanceAnalysisObj.hashMapInsertExecutions();
+        resultsArray[3] = performanceAnalysisObj.arrayLookUpExecutions();
+        resultsArray[4] = performanceAnalysisObj.arrayListLookUpExecutions();
+        resultsArray[5] = performanceAnalysisObj.hashMapLookUpExecutions();
+        resultsArray[6] = performanceAnalysisObj.arrayDeleteSurnameExecutions();
+        resultsArray[7] = performanceAnalysisObj.arrayListDeleteSurnameExecutions();
+        resultsArray[8] = performanceAnalysisObj.hashMapDeleteSurnameExecutions();
+        resultsArray[9] = performanceAnalysisObj.arrayDeleteExtensionExecutions();
+        resultsArray[10] = performanceAnalysisObj.arrayListDeleteExtensionExecutions();
+        resultsArray[11] = performanceAnalysisObj.hashMapDeleteExtensionExecutions();
         return resultsArray;
         }
 }
