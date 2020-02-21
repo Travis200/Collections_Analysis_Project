@@ -1,8 +1,6 @@
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.Objects;
 
 public class PerformanceAnalysis {
     public static PerformanceAnalysis performanceAnalysisObj = new PerformanceAnalysis();
@@ -143,123 +141,123 @@ public class PerformanceAnalysis {
         return stopWatchObj.getElapsedTime();
     }
 
-    public void arrayInsertExecutions() {
+    public long[] arrayInsertExecutions() {
         ArrayList<Long> arrayListOfTimes = new ArrayList<Long>();
         for (int i = 0; i < 1000; i++) {
             long time = arrayTestInsert();
             arrayListOfTimes.add(time);
         }
         long[] result = bestWorstMeanCalc(arrayListOfTimes);
-        System.out.println(Arrays.toString(result));
+        return result;
     }
 
-    public void arrayListInsertExecutions() {
+    public long[] arrayListInsertExecutions() {
         ArrayList<Long> arrayListOfTimes = new ArrayList<Long>();
         for (int i = 0; i < 1000; i++) {
             long time = arrayListTestInsert();
             arrayListOfTimes.add(time);
         }
         long[] result = bestWorstMeanCalc(arrayListOfTimes);
-        System.out.println(Arrays.toString(result));
+        return result;
     }
 
-    public void hashMapInsertExecutions() {
+    public long[] hashMapInsertExecutions() {
         ArrayList<Long> arrayListOfTimes = new ArrayList<Long>();
         for (int i = 0; i < 1000; i++) {
             long time = hashMapTestInsert();
             arrayListOfTimes.add(time);
         }
         long[] result = bestWorstMeanCalc(arrayListOfTimes);
-        System.out.println(Arrays.toString(result));
+        return result;
     }
 
-    public void arrayLookUpExecutions() throws IOException {
+    public long[] arrayLookUpExecutions() throws IOException {
         ArrayList<Long> arrayListOfTimes = new ArrayList<Long>();
         for (int i = 0; i < 1000; i++) {
             long time = arrayTestLookUp();
             arrayListOfTimes.add(time);
         }
         long[] result = bestWorstMeanCalc(arrayListOfTimes);
-        System.out.println(Arrays.toString(result));
+        return result;
     }
 
-    public void arrayListLookUpExecutions() throws IOException {
+    public long[] arrayListLookUpExecutions() throws IOException {
         ArrayList<Long> arrayListOfTimes = new ArrayList<Long>();
         for (int i = 0; i < 1000; i++) {
             long time = arrayListTestLookUp();
             arrayListOfTimes.add(time);
         }
         long[] result = bestWorstMeanCalc(arrayListOfTimes);
-        System.out.println(Arrays.toString(result));
+        return result;
     }
 
-    public void hashMapLookUpExecutions() throws IOException {
+    public long[] hashMapLookUpExecutions() throws IOException {
         ArrayList<Long> arrayListOfTimes = new ArrayList<Long>();
         for (int i = 0; i < 1000; i++) {
             long time = hashMapTestLookUp();
             arrayListOfTimes.add(time);
         }
         long[] result = bestWorstMeanCalc(arrayListOfTimes);
-        System.out.println(Arrays.toString(result));
+        return result;
     }
 
-    public void arrayDeleteSurnameExecutions() throws IOException {
+    public long[] arrayDeleteSurnameExecutions() throws IOException {
         ArrayList<Long> arrayListOfTimes = new ArrayList<Long>();
         for (int i = 0; i < 1000; i++) {
             long time = arrayTestDeleteSurname();
             arrayListOfTimes.add(time);
         }
         long[] result = bestWorstMeanCalc(arrayListOfTimes);
-        System.out.println(Arrays.toString(result));
+        return result;
     }
 
-    public void arrayListDeleteSurnameExecutions() throws IOException {
+    public long[] arrayListDeleteSurnameExecutions() throws IOException {
         ArrayList<Long> arrayListOfTimes = new ArrayList<Long>();
         for (int i = 0; i < 1000; i++) {
             long time = arrayListTestDeleteSurname();
             arrayListOfTimes.add(time);
         }
         long[] result = bestWorstMeanCalc(arrayListOfTimes);
-        System.out.println(Arrays.toString(result));
+        return result;
     }
 
-    public void hashMapDeleteSurnameExecutions() throws IOException {
+    public long[] hashMapDeleteSurnameExecutions() throws IOException {
         ArrayList<Long> arrayListOfTimes = new ArrayList<Long>();
         for (int i = 0; i < 1000; i++) {
             long time = hashMapTestDeleteSurname();
             arrayListOfTimes.add(time);
         }
         long[] result = bestWorstMeanCalc(arrayListOfTimes);
-        System.out.println(Arrays.toString(result));
+        return result;
     }
 
-    public void arrayDeleteExtensionExecutions() throws IOException {
+    public long[] arrayDeleteExtensionExecutions() throws IOException {
         ArrayList<Long> arrayListOfTimes = new ArrayList<Long>();
         for (int i = 0; i < 1000; i++) {
             long time = arrayTestDeleteExtension();
             arrayListOfTimes.add(time);
         }
         long[] result = bestWorstMeanCalc(arrayListOfTimes);
-        System.out.println(Arrays.toString(result));
+        return result;
     }
-    public void arrayListDeleteExtensionExecutions() throws IOException {
+    public long[] arrayListDeleteExtensionExecutions() throws IOException {
         ArrayList<Long> arrayListOfTimes = new ArrayList<Long>();
         for (int i = 0; i < 1000; i++) {
             long time = arrayListTestDeleteExtension();
             arrayListOfTimes.add(time);
         }
         long[] result = bestWorstMeanCalc(arrayListOfTimes);
-        System.out.println(Arrays.toString(result));
+        return result;
     }
 
-    public void hashMapDeleteExtensionExecutions() throws IOException {
+    public long[] hashMapDeleteExtensionExecutions() throws IOException {
         ArrayList<Long> arrayListOfTimes = new ArrayList<Long>();
         for (int i = 0; i < 1000; i++) {
             long time = hashMapTestDeleteExtension();
             arrayListOfTimes.add(time);
         }
         long[] result = bestWorstMeanCalc(arrayListOfTimes);
-        System.out.println(Arrays.toString(result));
+        return result;
     }
 
 
@@ -281,6 +279,21 @@ public class PerformanceAnalysis {
         //System.out.println(meanExecution);
         return arrayOfResults;
     }
-
+        public long[][] arrayOfResults() throws IOException {
+            long[][] resultsArray = new long[12][3];
+            resultsArray[0] = performanceAnalysisObj.arrayInsertExecutions();
+            resultsArray[1] = performanceAnalysisObj.arrayListInsertExecutions();
+            resultsArray[2] = performanceAnalysisObj.hashMapInsertExecutions();
+            resultsArray[3] = performanceAnalysisObj.arrayLookUpExecutions();
+            resultsArray[4] = performanceAnalysisObj.arrayListLookUpExecutions();
+            resultsArray[5] = performanceAnalysisObj.hashMapLookUpExecutions();
+            resultsArray[6] = performanceAnalysisObj.arrayDeleteSurnameExecutions();
+            resultsArray[7] = performanceAnalysisObj.arrayListDeleteSurnameExecutions();
+            resultsArray[8] = performanceAnalysisObj.hashMapDeleteSurnameExecutions();
+            resultsArray[9] = performanceAnalysisObj.arrayDeleteExtensionExecutions();
+            resultsArray[10] = performanceAnalysisObj.arrayListDeleteExtensionExecutions();
+            resultsArray[11] = performanceAnalysisObj.hashMapDeleteExtensionExecutions();
+        return resultsArray;
+        }
 }
 

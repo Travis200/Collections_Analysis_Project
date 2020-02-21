@@ -1,6 +1,7 @@
 import java.io.FileWriter;   // Import the FileWriter class
 import java.io.IOException;  // Import the IOException class to handle errors
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Output {
     public static Output outputObj = new Output();
@@ -33,6 +34,34 @@ public class Output {
         System.out.println("The data has been output to " + fileName + " in the form of a CSV file.");
         myWriter.close();
     }
+
+        public void performanceAnalysisReport(String fileName) throws IOException {
+            FileWriter myWriter = new FileWriter(fileName);
+            String[] resultTitles = {"Array: InsertMethod", "ArrayList: InsertMethod", "HashMap: InsertMethod",
+                    "Array: LookUpMethod", "ArrayList: LookUpMethod", "HashMap :LookUpMethod",
+                    "Array: DeleteSurnameMethod", "ArrayList: DeleteSurnameMethod", "HashMap: DeleteSurnameMethod",
+                    "Array: DeleteExtensionMethod", "ArrayList: DeleteExtensionMethod",
+                    "HashMap: DeleteExtensionMethod"};
+            myWriter.write("PERFORMANCE ANALYSIS REPORT\n");
+            myWriter.write("---------------------------\n");
+            myWriter.write("                           \n");
+            myWriter.write("                           \n");
+            long[][] resultsArray = PerformanceAnalysis.performanceAnalysisObj.arrayOfResults();
+            for (int i = 0; i < 12 ; i++) {
+                long[] testResults = resultsArray[i];
+                String value1 = String.format("%-10s",String.valueOf(testResults[0] ));
+                String value2 = String.format("%-10s",String.valueOf(testResults[1] ));
+                String value3 = String.format("%-10s",String.valueOf(testResults[2] ));
+                String resultTitle = String.format("%-35s",String.valueOf(resultTitles[i] ));
+                String stringOfReportLine = resultTitle + "Best execution time: " + value1 + "Worst execution time: " + value2 + "Mean execution time: " + value3;
+                myWriter.write(stringOfReportLine);
+                myWriter.write("\n");
+            }
+        System.out.println("The data has been output to " + fileName + " in the form of a CSV file.");
+        myWriter.close();
+    }
+
+
 
     public void tableWriter(String dirChoice) {
         ArrayList<Entry> data = dirToUse(dirChoice);

@@ -22,6 +22,8 @@ public class Main {
         PerformanceAnalysis.performanceAnalysisObj.hashMapTestInsert();
 
          */
+
+        /*
         PerformanceAnalysis.performanceAnalysisObj.arrayInsertExecutions();
         PerformanceAnalysis.performanceAnalysisObj.arrayListInsertExecutions();
         PerformanceAnalysis.performanceAnalysisObj.hashMapInsertExecutions();
@@ -36,13 +38,15 @@ public class Main {
         PerformanceAnalysis.performanceAnalysisObj.hashMapLookUpExecutions();
 
 
+         */
+
         //System.out.println(PerformanceAnalysis.performanceAnalysisObj.hashMapTestDeleteExtension());
 
 
 
+        //PerformanceAnalysis.performanceAnalysisObj.arrayOfResults();
 
-
-
+        Output.outputObj.performanceAnalysisReport("performance_report.txt");
 
 
 
