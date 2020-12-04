@@ -22,7 +22,7 @@ public class Input {
         //This method creates a user interface and takes the CSV file location which can be read as a parameter
         public void userInterface(String fileLoc) throws IOException {
             Scanner scannerObj = new Scanner(System.in);  // Create a Scanner object
-            System.out.println("Would your like to use a CSV file (1) or Manually input entries(2)?");
+            System.out.println("Would your like to use a CSV file (1) or Manually input entries (2)?");
             System.out.print("Input option 1 or 2: ");
             String userChoice1 = scannerObj.nextLine().trim();  // Read user input
             while (!((userChoice1.equals("1")) || (userChoice1.equals("2")))) {
